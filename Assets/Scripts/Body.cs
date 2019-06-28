@@ -52,7 +52,7 @@ public class Body : MonoBehaviour
         }
     }
 
-    private void MoveHand(HandPositionType newPosition)
+    public void MoveHand(HandPositionType newPosition)
     {
         HandPositionSetting? positionSetting =  GetHandPositionForType(newPosition);
         if (positionSetting.HasValue)
