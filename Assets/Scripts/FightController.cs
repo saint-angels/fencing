@@ -4,8 +4,31 @@ using UnityEngine;
 
 public class FightController : MonoBehaviour
 {
+    [SerializeField] private AIController aiController = null;
+    [SerializeField] private BodyShell userBody = null;
+    [SerializeField] private BodyShell enemyBody = null;
+
     public void Run()
     {
+        userBody.Init();
+        enemyBody.Init();
 
+        aiController.OnAttack += AIController_OnAttack;
+        aiController.Run();
+    }
+
+    private void AIController_OnAttack(StanceType aiAttackStance)
+    {
+        bool playerHit = userBody.CurrentStanceType != aiAttackStance;
+        if (playerHit)
+        {
+            print($"Player is hit");
+        }
+        else
+        {
+            print($"Player is not hit");
+            //Shake camera
+            //Spawn particles
+        }
     }
 }

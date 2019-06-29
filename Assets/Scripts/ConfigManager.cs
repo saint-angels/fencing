@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ConfigManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AIConfig AI => aiConfig;
+    public AnimationConfig Animation => animationConfig;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private AIConfig aiConfig = null;
+    [SerializeField] private AnimationConfig animationConfig = null;
+
 }

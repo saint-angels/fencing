@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fcde58c5174e54ab840ed8989b5448, type: 3}
-  m_Name: AIConfig
+  m_Script: {fileID: 11500000, guid: 3e58af93c60ec2941968361aa3bf8c59, type: 3}
+  m_Name: AnimationConfig
   m_EditorClassIdentifier: 
-  stanceChoosingDuration: 2
+  attackWarmupMinScaleY: 0.5

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] private Body body = null;
+    [SerializeField] private BodyShell body = null;
 
     void Start()
     {
@@ -18,11 +18,11 @@ public class PlayerInput : MonoBehaviour
 
         if (upButtonDown)
         {
-            body.MoveHand(true);
+            body.SetStance(true);
         }
         else if(downButtonDown)
         {
-            body.MoveHand(false);
+            body.SetStance(false);
         }
     }
 }
