@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e58af93c60ec2941968361aa3bf8c59, type: 3}
   m_Name: AnimationConfig
   m_EditorClassIdentifier: 
-  attackWarmupMinScaleY: 0.5
+  bodyStanceChangeDuration: 0.2
+  bodyStanceChangeEase: 21
+  bodyAttackWarmupMinScaleY: 0.8
+  bodyAttackWarmupCycleDuration: 0.5

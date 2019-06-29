@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public class BodyShell : MonoBehaviour
 {
     public event Action<StanceType> OnStanceChanged = (stanceType) => { };
+    public event Action<BodyState> OnBodyStateChanged = (bodyState) => { };
 
     public enum BodyState
     {
@@ -19,12 +20,8 @@ public class BodyShell : MonoBehaviour
 
     [SerializeField] private BodyView bodyView = null;
 
-    private AnimationConfig animationCfg;
-
     public void Init()
     {
-        animationCfg = Root.ConfigManager.Animation;
-
         bodyView.Init(this);
 
         SetStance(StanceType.MIDDLE);
@@ -32,15 +29,7 @@ public class BodyShell : MonoBehaviour
 
     public void SetState(BodyState newState)
     {
-        switch (newState)
-        {
-            case BodyState.IDLE:
-                break;
-            case BodyState.ATTACK_WARMUP:
-                //DOTween.Sequence().repe
-                //transform.DOScaleY(animationCfg.attackWarmupMinScaleY, 1f).SetEase(Ease.InOutFlash, 2, 0);
-                break;
-        }
+        OnBodyStateChanged(newState);
     }
 
     //TODO: Return promise ?

@@ -48,6 +48,8 @@ public class AIController : MonoBehaviour
         yield return new WaitForSeconds(aiConfig.attackWarmupDuration);
 
         OnAttack(body.CurrentStanceType);
+
+        body.SetState(BodyShell.BodyState.IDLE);
     }
 
     private StanceType GetRandomStance()

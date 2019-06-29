@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fcde58c5174e54ab840ed8989b5448, type: 3}
   m_Name: AIConfig
   m_EditorClassIdentifier: 
-  stanceChoosingDuration: 2
+  stanceChooseDuration: 2
+  stanceChooseDelay: 1
+  attackWarmupDuration: 1.5
+  postAttackDelay: 3
