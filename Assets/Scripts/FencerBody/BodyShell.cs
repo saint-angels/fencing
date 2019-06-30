@@ -20,9 +20,10 @@ public class BodyShell : MonoBehaviour
 
     [SerializeField] private BodyView bodyView = null;
 
-    public void Init()
+    public void Init(Faction faction)
     {
         bodyView.Init(this);
+        Root.UIManager.SetupBodyHUD(bodyView, faction);
 
         SetStance(StanceType.MIDDLE);
     }

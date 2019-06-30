@@ -14,8 +14,11 @@ public class BodyView : MonoBehaviour
         public float rotationZ;
     }
 
+    public Transform HUDPoint => hudPoint;
+
     [SerializeField] private StanceSetting[] stanceSettings = null;
     [SerializeField] private SpriteRenderer arm = null;
+    [SerializeField] private Transform hudPoint = null;
 
     private AnimationConfig animationCfg;
 

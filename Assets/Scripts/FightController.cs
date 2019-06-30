@@ -10,8 +10,8 @@ public class FightController : MonoBehaviour
 
     public void Run()
     {
-        userBody.Init();
-        enemyBody.Init();
+        userBody.Init(Faction.USER);
+        enemyBody.Init(Faction.ENEMY);
 
         aiController.OnAttack += AIController_OnAttack;
         aiController.Run();
