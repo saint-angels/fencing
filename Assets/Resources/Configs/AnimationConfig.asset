@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyStanceChangeDuration: 0.2
   bodyStanceChangeEase: 21
-  bodyAttackWarmupMinScaleY: 0.8
+  bodyAttackWarmupMinScaleY: 0.9
   bodyAttackWarmupCycleDuration: 0.5
   fenceLabelHideOffsetY: 400
   fenceLabelHideDuration: 1
   fenceLabelHideEase: 5
+  blockComboLabelShakeDuration: 1
+  blockComboLabelShakeStrength: 10
+  blockComboLabelShakeVibrato: 20
+  blockComboLabelShakeRandomness: 1

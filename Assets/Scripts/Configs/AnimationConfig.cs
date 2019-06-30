@@ -18,4 +18,9 @@ public class AnimationConfig : ScriptableObject
     public float fenceLabelHideOffsetY = 400f;
     public float fenceLabelHideDuration = 1f;
     public Ease fenceLabelHideEase = Ease.InQuart;
+
+    public float blockComboLabelShakeDuration = 1f;
+    public float blockComboLabelShakeStrength = 1f;
+    public int blockComboLabelShakeVibrato = 1;
+    public float blockComboLabelShakeRandomness = 1f;
 }

@@ -16,10 +16,10 @@ public class AIController : MonoBehaviour
     {
         aiConfig = Root.ConfigManager.AI;
 
-        StartCoroutine(RoundRoutine());
+        StartCoroutine(FightRoutine());
     }
 
-    private IEnumerator RoundRoutine()
+    private IEnumerator FightRoutine()
     {
         while (true)
         {

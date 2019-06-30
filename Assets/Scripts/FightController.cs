@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class FightController : MonoBehaviour
 {
-    public event Action<bool> OnUserBlock = (success) => { };
+    public event Action<uint> OnUserBlock = (combo) => { };
 
     [SerializeField] private AIController aiController = null;
     [SerializeField] private BodyShell userBody = null;
     [SerializeField] private BodyShell enemyBody = null;
+
+    private uint userBlockCombo = 0;
 
     public void Run()
     {
@@ -25,17 +27,18 @@ public class FightController : MonoBehaviour
         bool blockSuccess = userBody.CurrentStance == aiAttackStance;
         userBody.BlockFinished(blockSuccess);
 
-        OnUserBlock(blockSuccess);
 
         if (blockSuccess)
         {
             print($"Player is not hit");
-            //Shake camera
-            //Spawn particles
+            userBlockCombo++;
         }
         else
         {
+            userBlockCombo = 0;
             print($"Player is hit");
         }
+
+        OnUserBlock(userBlockCombo);
     }
 }
