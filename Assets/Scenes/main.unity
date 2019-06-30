@@ -449,6 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiConfig: {fileID: 11400000, guid: a9b3e53beae22f34e9307ee2b4109636, type: 2}
   animationConfig: {fileID: 11400000, guid: e8b8353e3e3f4ac44bb7ec795ec0f3a2, type: 2}
+  cameraConfig: {fileID: 11400000, guid: b74db7fa452957a49a1568210fc8a83c, type: 2}
 --- !u!4 &392294315
 Transform:
   m_ObjectHideFlags: 0
@@ -1762,7 +1763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5191773064147709852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.37, y: 5.31, z: 0}
+  m_LocalPosition: {x: 1.82, y: 4.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 324545444}

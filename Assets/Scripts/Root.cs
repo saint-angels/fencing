@@ -20,6 +20,8 @@ public class Root : MonoBehaviour
 
     private void Start()
     {
+        cameraController.Init();
+
         fightController.Run();
     }
 
