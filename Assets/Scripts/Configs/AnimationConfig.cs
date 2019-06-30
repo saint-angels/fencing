@@ -23,4 +23,6 @@ public class AnimationConfig : ScriptableObject
     public float blockComboLabelShakeStrength = 1f;
     public int blockComboLabelShakeVibrato = 1;
     public float blockComboLabelShakeRandomness = 1f;
+
+    public float buttonsPromptFadeDuration = 1f;
 }

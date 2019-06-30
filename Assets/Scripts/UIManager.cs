@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform userBodyHUD = null;
     [SerializeField] private TMPro.TextMeshProUGUI fenceCommandLabel = null;
     [SerializeField] private TMPro.TextMeshProUGUI blockComboLabel = null;
+
+    [SerializeField] private Image keysPromptImage = null;
 
     private Transform userBodyHUDPoint;
     private AnimationConfig animationCfg;
@@ -20,12 +23,20 @@ public class UIManager : MonoBehaviour
         blockComboLabel.text = "0";
 
         //Hide fence command label
-        fenceCommandLabel.enabled = true;
-        fenceCommandLabel.rectTransform.DOLocalMoveY(animationCfg.fenceLabelHideOffsetY, animationCfg.fenceLabelHideDuration)
-            .SetEase(animationCfg.fenceLabelHideEase)
-            .OnComplete(() => fenceCommandLabel.enabled = false);
+        fenceCommandLabel.enabled = false;
 
         Root.FightController.OnUserBlock += FightController_OnUserBlock;
+        Root.PlayerInput.OnFirstButtonPressed += OnUserFirstButtonPressed;
+    }
+
+    private void OnUserFirstButtonPressed()
+    {
+        keysPromptImage.DOFade(0, animationCfg.buttonsPromptFadeDuration).SetEase(Ease.InOutQuad);
+
+        fenceCommandLabel.enabled = true;
+        fenceCommandLabel.rectTransform.DOLocalMoveY(animationCfg.fenceLabelHideOffsetY, animationCfg.fenceLabelHideDuration)
+        .SetEase(animationCfg.fenceLabelHideEase)
+        .OnComplete(() => fenceCommandLabel.enabled = false);
     }
 
     private void FightController_OnUserBlock(int blockCombo)

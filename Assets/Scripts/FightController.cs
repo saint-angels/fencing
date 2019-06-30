@@ -19,6 +19,13 @@ public class FightController : MonoBehaviour
         enemyBody.Init(Faction.ENEMY);
 
         aiController.OnAttack += AIController_OnAttack;
+
+        //Don't run enemy ai until user input
+        Root.PlayerInput.OnFirstButtonPressed += PlayerInput_OnFirstButtonPressed;
+    }
+
+    private void PlayerInput_OnFirstButtonPressed()
+    {
         aiController.Run();
     }
 
