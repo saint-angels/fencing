@@ -335,6 +335,7 @@ Transform:
   - {fileID: 3465087778021719689}
   - {fileID: 930612195}
   - {fileID: 1384160483}
+  - {fileID: 1824142228}
   m_Father: {fileID: 34586084}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1244,6 +1245,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!198 &1824142226 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5391129305812792482, guid: eae33a1ea99f8704bbefa262cc467714,
+    type: 3}
+  m_PrefabInstance: {fileID: 2143654927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1824142228 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+    type: 3}
+  m_PrefabInstance: {fileID: 2143654927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1982493662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1460,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 3317201475233518963}
+--- !u!1001 &2143654927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 324545444}
+    m_Modifications:
+    - target: {fileID: 2676575006969109975, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_Name
+      value: BlockSuccessVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.8007812
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000014603138
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072511696837511924, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391129305812792482, guid: eae33a1ea99f8704bbefa262cc467714,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eae33a1ea99f8704bbefa262cc467714, type: 3}
 --- !u!4 &2170567701962031193
 Transform:
   m_ObjectHideFlags: 0
@@ -1740,6 +1827,7 @@ MonoBehaviour:
     armRotationZ: 35.654
   attackingSpriteContainer: {fileID: 856488677}
   attackingArm: {fileID: 1246673084}
+  blockSuccessVFX: {fileID: 0}
 --- !u!1 &7351549365814366540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,3 +1875,4 @@ MonoBehaviour:
   attackingStanceSettings: []
   attackingSpriteContainer: {fileID: 930612195}
   attackingArm: {fileID: 299320334}
+  blockSuccessVFX: {fileID: 1824142226}

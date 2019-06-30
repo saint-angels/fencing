@@ -9,6 +9,7 @@ public class BodyShell : MonoBehaviour
 {
     public event Action<StanceType> OnStanceChanged = (stanceType) => { };
     public event Action<BodyState> OnBodyStateChanged = (bodyState) => { };
+    public event Action<bool> OnBlockFinished = (success) => { };
 
     public StanceType CurrentStance { get; private set; }
 
@@ -21,6 +22,11 @@ public class BodyShell : MonoBehaviour
 
         SetState(BodyState.IDLE);
         SetStance(StanceType.MIDDLE);
+    }
+
+    public void BlockFinished(bool success)
+    {
+        OnBlockFinished(success);
     }
 
     public void SetState(BodyState newState)

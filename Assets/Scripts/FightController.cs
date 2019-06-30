@@ -19,16 +19,18 @@ public class FightController : MonoBehaviour
 
     private void AIController_OnAttack(StanceType aiAttackStance)
     {
-        bool playerHit = userBody.CurrentStance != aiAttackStance;
-        if (playerHit)
-        {
-            print($"Player is hit");
-        }
-        else
+        bool blockSuccess = userBody.CurrentStance == aiAttackStance;
+        userBody.BlockFinished(blockSuccess);
+
+        if (blockSuccess)
         {
             print($"Player is not hit");
             //Shake camera
             //Spawn particles
+        }
+        else
+        {
+            print($"Player is hit");
         }
     }
 }

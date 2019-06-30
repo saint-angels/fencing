@@ -8,6 +8,7 @@ public class AIConfig : ScriptableObject
     [Header("Choosing position")]
     public float stanceChooseDuration = 2f;
     public float stanceChooseDelay = 1f;
+    public float stancePostChoiceDelay = .5f;
 
     [Header("Attacking")]
     public float attackWarmupDuration = 3f;

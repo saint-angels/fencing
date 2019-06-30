@@ -39,6 +39,7 @@ public class AIController : MonoBehaviour
             yield return new WaitForSeconds(aiConfig.stanceChooseDelay);
             StanceType randomStance = GetRandomStance();
             body.SetStance(randomStance);
+            yield return new WaitForSeconds(aiConfig.stancePostChoiceDelay);
         }   
     }
 
@@ -47,9 +48,9 @@ public class AIController : MonoBehaviour
         body.SetState(BodyState.ATTACK_WARMUP);
         yield return new WaitForSeconds(aiConfig.attackWarmupDuration);
 
+        body.SetState(BodyState.ATTACKING);
         OnAttack(body.CurrentStance);
 
-        body.SetState(BodyState.ATTACKING);
         yield return new WaitForSeconds(1f);
         body.SetState(BodyState.IDLE);
     }

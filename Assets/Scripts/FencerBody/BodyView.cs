@@ -28,6 +28,8 @@ public class BodyView : MonoBehaviour
     [SerializeField] private Transform attackingSpriteContainer = null;
     [SerializeField] private SpriteRenderer attackingArm = null;
 
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem blockSuccessVFX = null;
 
     private SpriteRenderer CurrentArm
     {
@@ -56,6 +58,15 @@ public class BodyView : MonoBehaviour
 
         ownerShell.OnStanceChanged += OnStanceChanged;
         ownerShell.OnBodyStateChanged += OnBodyStateChanged;
+        ownerShell.OnBlockFinished += OnBlockFinished;
+    }
+
+    private void OnBlockFinished(bool blockSuccess)
+    {
+        if (blockSuccess && blockSuccessVFX != null)
+        {
+            blockSuccessVFX.Play();
+        }
     }
 
     private void OnBodyStateChanged(BodyState newState)
