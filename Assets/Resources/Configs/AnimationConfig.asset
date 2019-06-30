@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyStanceChangeDuration: 0.2
   bodyStanceChangeEase: 21
-  bodyAttackWarmupMinScaleY: 0.9
+  bodyAttackWarmupMinScaleY: 0.95
   bodyAttackWarmupCycleDuration: 0.5
   fenceLabelHideOffsetY: 400
   fenceLabelHideDuration: 1

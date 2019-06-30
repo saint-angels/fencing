@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
     }
 
 
-    private void OnUserBlock(uint comboScore)
+    private void OnUserBlock(int comboScore)
     {
         StartCameraShake(cameraConfig.shakeBlockDuration);
     }

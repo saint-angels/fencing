@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
         Root.FightController.OnUserBlock += FightController_OnUserBlock;
     }
 
-    private void FightController_OnUserBlock(uint blockCombo)
+    private void FightController_OnUserBlock(int blockCombo)
     {
         blockComboLabel.text = blockCombo.ToString();
         blockComboLabel.transform.DOShakePosition(animationCfg.blockComboLabelShakeDuration,

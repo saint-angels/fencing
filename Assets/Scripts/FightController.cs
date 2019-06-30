@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class FightController : MonoBehaviour
 {
-    public event Action<uint> OnUserBlock = (combo) => { };
+    public event Action<int> OnUserBlock = (combo) => { };
 
     [SerializeField] private AIController aiController = null;
     [SerializeField] private BodyShell userBody = null;
     [SerializeField] private BodyShell enemyBody = null;
 
-    private uint userBlockCombo = 0;
+    private int userBlockCombo = 0;
 
     public void Run()
     {
@@ -38,6 +38,7 @@ public class FightController : MonoBehaviour
             userBlockCombo = 0;
             print($"Player is hit");
         }
+        aiController.UpdateDifficulty(userBlockCombo);
 
         OnUserBlock(userBlockCombo);
     }
