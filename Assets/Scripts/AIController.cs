@@ -44,12 +44,14 @@ public class AIController : MonoBehaviour
 
     private IEnumerator AttackRoutine()
     {
-        body.SetState(BodyShell.BodyState.ATTACK_WARMUP);
+        body.SetState(BodyState.ATTACK_WARMUP);
         yield return new WaitForSeconds(aiConfig.attackWarmupDuration);
 
-        OnAttack(body.CurrentStanceType);
+        OnAttack(body.CurrentStance);
 
-        body.SetState(BodyShell.BodyState.IDLE);
+        body.SetState(BodyState.ATTACKING);
+        yield return new WaitForSeconds(1f);
+        body.SetState(BodyState.IDLE);
     }
 
     private StanceType GetRandomStance()

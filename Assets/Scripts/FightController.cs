@@ -19,7 +19,7 @@ public class FightController : MonoBehaviour
 
     private void AIController_OnAttack(StanceType aiAttackStance)
     {
-        bool playerHit = userBody.CurrentStanceType != aiAttackStance;
+        bool playerHit = userBody.CurrentStance != aiAttackStance;
         if (playerHit)
         {
             print($"Player is hit");

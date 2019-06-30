@@ -10,13 +10,7 @@ public class BodyShell : MonoBehaviour
     public event Action<StanceType> OnStanceChanged = (stanceType) => { };
     public event Action<BodyState> OnBodyStateChanged = (bodyState) => { };
 
-    public enum BodyState
-    {
-        IDLE,
-        ATTACK_WARMUP,
-    }
-
-    public StanceType CurrentStanceType { get; private set; }
+    public StanceType CurrentStance { get; private set; }
 
     [SerializeField] private BodyView bodyView = null;
 
@@ -25,18 +19,20 @@ public class BodyShell : MonoBehaviour
         bodyView.Init(this);
         Root.UIManager.SetupBodyHUD(bodyView, faction);
 
+        SetState(BodyState.IDLE);
         SetStance(StanceType.MIDDLE);
     }
 
     public void SetState(BodyState newState)
     {
         OnBodyStateChanged(newState);
+        SetStance(CurrentStance);
     }
 
     //TODO: Return promise ?
     public void SetStance(bool changeUp)
     {
-        switch (CurrentStanceType)
+        switch (CurrentStance)
         {
             case StanceType.HIGH:
                 if (!changeUp)
@@ -65,7 +61,7 @@ public class BodyShell : MonoBehaviour
 
     public void SetStance(StanceType newStance)
     {
-        CurrentStanceType = newStance;
-        OnStanceChanged(CurrentStanceType);
+        CurrentStance = newStance;
+        OnStanceChanged(CurrentStance);
     }
 }
