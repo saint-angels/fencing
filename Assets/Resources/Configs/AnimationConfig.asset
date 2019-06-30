@@ -16,3 +16,6 @@ MonoBehaviour:
   bodyStanceChangeEase: 21
   bodyAttackWarmupMinScaleY: 0.8
   bodyAttackWarmupCycleDuration: 0.5
+  fenceLabelHideOffsetY: 400
+  fenceLabelHideDuration: 1
+  fenceLabelHideEase: 5

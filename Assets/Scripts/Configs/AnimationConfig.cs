@@ -13,4 +13,9 @@ public class AnimationConfig : ScriptableObject
 
     public float bodyAttackWarmupMinScaleY = .5f;
     public float bodyAttackWarmupCycleDuration = .5f;
+
+    [Header("UI")]
+    public float fenceLabelHideOffsetY = 400f;
+    public float fenceLabelHideDuration = 1f;
+    public Ease fenceLabelHideEase = Ease.InQuart;
 }
