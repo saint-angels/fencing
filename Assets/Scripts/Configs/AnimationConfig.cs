@@ -10,6 +10,7 @@ public class AnimationConfig : ScriptableObject
     public float bodyStanceChangeDuration = .3f;
     public Ease bodyStanceChangeEase = Ease.OutCirc;
 
+    public float bodyDamagedFlashDuration = .3f;
 
     public float bodyAttackWarmupMinScaleY = .5f;
     public float bodyAttackWarmupCycleDuration = .5f;

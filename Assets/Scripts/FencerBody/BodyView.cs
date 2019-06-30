@@ -22,11 +22,13 @@ public class BodyView : MonoBehaviour
     [SerializeField] private StanceSetting[] idleStanceSettings = null;
     [SerializeField] private Transform idleSpriteContainer = null;
     [SerializeField] private SpriteRenderer idleArm = null;
+    [SerializeField] private SpriteRenderer idleBody = null;
 
     [Header("Attacking")]
     [SerializeField] private StanceSetting[] attackingStanceSettings = null;
     [SerializeField] private Transform attackingSpriteContainer = null;
     [SerializeField] private SpriteRenderer attackingArm = null;
+    [SerializeField] private SpriteRenderer attackingBody = null;
 
     [Header("VFX")]
     [SerializeField] private ParticleSystem blockSuccessVFX = null;
@@ -63,9 +65,32 @@ public class BodyView : MonoBehaviour
 
     private void OnBlockFinished(bool blockSuccess)
     {
-        if (blockSuccess && blockSuccessVFX != null)
+        if (blockSuccess)
         {
-            blockSuccessVFX.Play();
+            if (blockSuccessVFX != null)
+            {
+                blockSuccessVFX.Play();
+            }
+        }
+        else
+        {
+            idleBody.DOKill(true);
+            idleArm.DOKill(true);
+            attackingBody.DOKill(true);
+            attackingArm.DOKill(true);
+
+            switch (currentState)
+            {
+                case BodyState.IDLE:
+                case BodyState.ATTACK_WARMUP:
+                    idleBody.DOColor(Color.red, animationCfg.bodyDamagedFlashDuration).SetEase(Ease.Flash, 16, 0);
+                    idleArm.DOColor(Color.red, animationCfg.bodyDamagedFlashDuration).SetEase(Ease.Flash, 16, 0);
+                    break;
+                case BodyState.ATTACKING:
+                    attackingBody.DOColor(Color.red, animationCfg.bodyDamagedFlashDuration).SetEase(Ease.Flash, 16, 0);
+                    attackingArm.DOColor(Color.red, animationCfg.bodyDamagedFlashDuration).SetEase(Ease.Flash, 16, 0);
+                    break;
+            }
         }
     }
 
