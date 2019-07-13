@@ -12,6 +12,7 @@ public class AIController : MonoBehaviour
 
     private AIConfig aiConfig;
     private int difficultyLevel = 0;
+    private StanceType prevStanceType = StanceType.LOW;
 
     public void Run()
     {
@@ -36,7 +37,7 @@ public class AIController : MonoBehaviour
             yield return new WaitForSeconds(postAttackDelay);
         }
     }
-
+    
     private IEnumerator ChoosePosionRoutine()
     {
         float stanceChooseDuration = GetAdjastedConfigValue(aiConfig.stanceChooseDurationDefault, aiConfig.stanceChooseDurationMin);
@@ -44,10 +45,10 @@ public class AIController : MonoBehaviour
         while (Time.time < finishTime)
         {
             float stanceChooseDelay = GetAdjastedConfigValue(aiConfig.stanceChooseDelayDefault, aiConfig.stanceChooseDelayMin);
-            print($"stance choose delay {stanceChooseDelay}");
             yield return new WaitForSeconds(stanceChooseDelay);
 
-            StanceType randomStance = GetRandomStance();
+            StanceType randomStance = GetRandomStance(prevStanceType);
+            prevStanceType = randomStance;
             body.SetStance(randomStance);
 
             float stancePostChoiceDelay = GetAdjastedConfigValue(aiConfig.stancePostChoiceDelayDefault, aiConfig.stancePostChoiceDelayMin);
@@ -68,11 +69,16 @@ public class AIController : MonoBehaviour
         body.SetState(BodyState.IDLE);
     }
 
-    private StanceType GetRandomStance()
+    private StanceType GetRandomStance(StanceType previousStance)
     {
         Array values = Enum.GetValues(typeof(StanceType));
         System.Random random = new System.Random();
-        return (StanceType)values.GetValue(random.Next(values.Length));
+        StanceType newStance = previousStance;
+        while (previousStance == newStance)
+        {
+            newStance = (StanceType) values.GetValue(random.Next(values.Length));
+        }
+        return newStance;
     }
 
     private float GetAdjastedConfigValue(float defaultValue, float lastValue)
